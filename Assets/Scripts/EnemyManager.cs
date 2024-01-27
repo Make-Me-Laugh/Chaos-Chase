@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    NavMeshAgent agent;
-    GameObject player;
+    private NavMeshAgent agent;
+    private GameObject player;
+    private bool hasLineOfSight = false;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -18,16 +20,19 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
-        print(hit.collider.gameObject.tag);
-        if (!(hit.collider != null && hit.collider.gameObject.tag == "Player")) {
+        if (hasLineOfSight) {
+            agent.isStopped = true;
+        }
+        else {
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
         }
-        else {
-            agent.isStopped = true;
+    }
+
+    private void FixedUpdate() {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
+        if (ray.collider != null) {
+            hasLineOfSight = ray.collider.gameObject.CompareTag("Player");
         }
-        
     }
 }
