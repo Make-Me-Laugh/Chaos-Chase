@@ -50,3 +50,9 @@ TagManager:
   - name: Furniture
     uniqueID: 2941508159
     locked: 0
+  - name: Deco
+    uniqueID: 1798596279
+    locked: 0
+  - name: Walls 2
+    uniqueID: 434280881
+    locked: 0
