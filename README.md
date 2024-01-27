@@ -12,4 +12,10 @@ Character Sprites: https://assetstore.unity.com/packages/2d/undead-survivor-asse
 
 Furniture 1: https://assetstore.unity.com/packages/2d/2d-basic-room-assets-234762
 
-Furniture 2: https://penzilla.itch.io/top-down-retro-interior (mandatory credit: "Penzilla")
+Furniture 2: https://penzilla.itch.io/top-down-retro-interior (Credit: Penzilla)
+
+Furniture 3: https://limezu.itch.io/ (Credits: LimeZu)
+
+Slipper: https://www.freepik.com/free-vector/pixel-art-summer-elements-set_27001941.htm#query=summer%20pixel%20art&position=0&from_view=keyword&track=ais&uuid=8d8187ee-597f-401c-9695-9aeb1a80f62e
+
+Game Items: Canva
