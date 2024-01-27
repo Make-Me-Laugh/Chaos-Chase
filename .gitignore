@@ -71,3 +71,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/Assets/Furniture_pixel_art_assets
+/Assets/Top-Down_Retro_Interior
+/Assets/Undead Survivor
+/Assets/Furniture_pixel_art_assets.meta
+/Assets/Top-Down_Retro_Interior.meta
+/Assets/Undead Survivor.meta
+/Assets/Scenes/Example_Demo.unity
+/Assets/Scenes/Example_Demo.unity.meta
+/Assets/Scenes/Furniture_props_tiles_showcase_Demo.unity
+/Assets/Scenes/Furniture_props_tiles_showcase_Demo.unity.meta
