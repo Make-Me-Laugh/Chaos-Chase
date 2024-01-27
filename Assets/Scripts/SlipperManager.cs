@@ -16,12 +16,19 @@ public class SlipperManager : MonoBehaviour
         float distance = direction.magnitude;
         rb = GetComponent<Rigidbody2D>();
         rb.AddTorque(torque);
-        rb.AddForce(direction.normalized * distance * 0.1f, ForceMode2D.Impulse);
+        rb.AddForce(direction.normalized * Mathf.Max(distance, 5f), ForceMode2D.Impulse);
+        StartCoroutine(Disappear());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private IEnumerator Disappear() {
+        isDisappear = true;
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

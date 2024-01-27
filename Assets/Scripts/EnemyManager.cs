@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject player;
     private bool hasLineOfSight = false;
-    float radius = 1f;
+    float radius = 0.5f;
     private bool isShooting = false;
 
     void Awake()
@@ -23,17 +23,16 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         
-        agent.SetDestination(player.transform.position);
-        if (hasLineOfSight) {
-            
-            if (!isShooting) {
-                isShooting = true;
-                agent.isStopped = true;
-                StartCoroutine(Shoot());
+        if (!isShooting) {
+            if (hasLineOfSight) {
+                    isShooting = true;
+                    agent.isStopped = true;
+                    StartCoroutine(Shoot());
             }
-        }
-        else {
-            agent.isStopped = false;
+            else {
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+            }
         }
     }
 
@@ -51,6 +50,7 @@ public class EnemyManager : MonoBehaviour
         slipper.transform.position = transform.position + direction.normalized * radius;
         yield return new WaitForSeconds(GlobalSettings.EnemyReloadTime);
         agent.isStopped = false;
+        agent.SetDestination(player.transform.position);
         print("move");
         
         yield return new WaitForSeconds(0.5f);
