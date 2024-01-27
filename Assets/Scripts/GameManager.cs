@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public static GameState m_GameState = GameState.MainMenu
+    public static GameState m_GameState = GameState.MainMenu;
     public static float m_GameTime = GlobalSettings.StartTime;
     protected override void HandleAwake()
     {
@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.HandleDestroy();
         GlobalEvents.GameOverEvent -= HandleGameOver;
-        GlobalEvents.StateChangeEvent -= HandleStateChange;
+        GlobalEvents.StateChangeEvent -= HandleStartGame;
     }
 
     private void HandleGameOver()
