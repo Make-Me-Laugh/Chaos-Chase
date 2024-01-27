@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class AilingTest : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject key;
+    [SerializeField] GameObject tickets;
+    [SerializeField] GameObject wallet;
+    [SerializeField] GameObject phone;
+    [SerializeField] GameObject money;
 
     public void QuitGame()
     {
