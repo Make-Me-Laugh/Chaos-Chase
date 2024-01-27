@@ -45,7 +45,7 @@ TagManager:
   - name: Floor
     uniqueID: 1155355899
     locked: 0
-  - name: Walls
+  - name: Walls (back)
     uniqueID: 105243511
     locked: 0
   - name: Default
@@ -54,9 +54,36 @@ TagManager:
   - name: Furniture
     uniqueID: 2941508159
     locked: 0
-  - name: Deco
+  - name: Deco (back)
     uniqueID: 1798596279
     locked: 0
-  - name: Walls 2
+  - name: Walls (mid)
     uniqueID: 434280881
+    locked: 0
+  - name: Default 2
+    uniqueID: 2532745923
+    locked: 0
+  - name: Beds
+    uniqueID: 929095107
+    locked: 0
+  - name: Furniture 2
+    uniqueID: 1028581025
+    locked: 0
+  - name: Deco (mid)
+    uniqueID: 3633046169
+    locked: 0
+  - name: Walls (front)
+    uniqueID: 2423531301
+    locked: 0
+  - name: Doors
+    uniqueID: 3720962351
+    locked: 0
+  - name: Default 3
+    uniqueID: 3907441991
+    locked: 0
+  - name: Furniture 3
+    uniqueID: 4233340631
+    locked: 0
+  - name: Deco 3
+    uniqueID: 3590220167
     locked: 0
