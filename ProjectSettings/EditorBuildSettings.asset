@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 39e1fd9906de18a4d98955f5af304752
   - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: cbe5b2378194e4841b1f4d5431959717
+  - enabled: 1
     path: Assets/Scenes/AilingTest.unity
     guid: a3cd66f8026572e4d88ac3994dc7f689
   m_configObjects: {}
