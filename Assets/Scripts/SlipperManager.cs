@@ -25,8 +25,10 @@ public class SlipperManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnCollisionEnter2D(Collision2D other) {
+        // print("1111");
         if (other.gameObject.CompareTag("Player")) {
+            // print("hihih");
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             if (player != null) {
                 // player.PickUpItem(this);
