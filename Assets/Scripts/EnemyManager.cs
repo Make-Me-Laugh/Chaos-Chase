@@ -5,8 +5,12 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    NavMeshAgent agent;
-    GameObject player;
+    private NavMeshAgent agent;
+    private GameObject player;
+    private bool hasLineOfSight = false;
+    float radius = 0.5f;
+    private bool isShooting = false;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -19,15 +23,38 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
-        print(hit.collider.gameObject.tag);
-        if (!(hit.collider != null && hit.collider.gameObject.tag == "Player")) {
-            agent.isStopped = false;
-            agent.SetDestination(player.transform.position);
+        if (!isShooting) {
+            if (hasLineOfSight) {
+                    isShooting = true;
+                    agent.isStopped = true;
+                    StartCoroutine(Shoot());
+            }
+            else {
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+            }
         }
-        else {
-            agent.isStopped = true;
+    }
+
+    private void FixedUpdate() {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
+        if (ray.collider != null) {
+            hasLineOfSight = ray.collider.gameObject.CompareTag("Player");
         }
+    }
+
+    private IEnumerator Shoot() {
+        print("hit");
+        GameObject slipper = (GameObject)Instantiate(Resources.Load("Slipper"));
+        Vector3 direction = player.transform.position - transform.position;
+        slipper.transform.position = transform.position + direction.normalized * radius;
+        yield return new WaitForSeconds(GlobalSettings.EnemyReloadTime);
+        agent.isStopped = false;
+        agent.SetDestination(player.transform.position);
+        print("move");
         
+        yield return new WaitForSeconds(0.5f);
+        agent.isStopped = true;
+        isShooting = false;
     }
 }

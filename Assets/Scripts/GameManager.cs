@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public static GameState m_GameState = GameState.MainMenu;
-    public static float m_GameTime = GlobalSettings.StartTime;
+    public static float m_GameTime;
     protected override void HandleAwake()
     {
         base.HandleAwake();
@@ -30,6 +30,11 @@ public class GameManager : Singleton<GameManager>
     private void HandleStartGame()
     {
         m_GameState = GameState.InGame;
+    }
+
+    void Start()
+    {
+        m_GameTime = GlobalSettings.StartTime;
     }
 
     // Update is called once per frame
