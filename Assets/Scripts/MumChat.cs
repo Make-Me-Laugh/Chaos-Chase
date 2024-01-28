@@ -32,12 +32,14 @@ public class MumChat : MonoBehaviour
             showChat();
             time -= interval;
             mumDialogueIndex++;
-            if (mumDialogueIndex > mumDialogues.Count)
+            if (mumDialogueIndex >= mumDialogues.Count)
             {
                 mumDialogueIndex = 0;
             }
         }
-        updateChat(chatInstance);
+        if (chatInstance != null) {
+            updateChat(chatInstance);
+        }
     }
 
     private void showChat()
