@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     private GameObject player;
     private bool hasLineOfSight = false;
     float radius = 0.5f;
-    float shootradius = 4.5f;
+    float shootradius = 4f;
     private bool isShooting = false;
 
     void Awake()

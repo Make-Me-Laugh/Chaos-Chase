@@ -17,7 +17,7 @@ public class SlipperManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.AddTorque(torque);
         rb.AddForce(direction.normalized * Mathf.Max(distance, 5f), ForceMode2D.Impulse);
-        StartCoroutine(Disappear());
+        Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame
@@ -35,16 +35,20 @@ public class SlipperManager : MonoBehaviour
                 // player.PickUpItem(this);
                 if (player.health > 0) {
                     player.health -= 1;
-                }
-                else if (player.health == 0) {
-                    SceneManager.LoadScene("Lose");
+                    StartCoroutine(InjurePlayer());
                 }
             }
         }
     }
 
-    private IEnumerator Disappear() {
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
+    private IEnumerator InjurePlayer()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            player.GetComponent<SpriteRenderer>().color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            player.GetComponent<SpriteRenderer>().color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

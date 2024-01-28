@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private GameObject wallet;
     private GameObject phone;
     private GameObject money;
+    public GameObject chatBubble;
+    private GameObject chatBubbleInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
         health = 5;
         spriteRenderer = GetComponent<SpriteRenderer>();
         newSprite = Resources.Load<Sprite>("Sprites/Kid");
+        chatBubble = Resources.Load<GameObject>("ChatBubble");
         button = GameObject.FindGameObjectWithTag("Button");
         button.SetActive(false);
 
@@ -51,18 +54,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-        if (GameManager.HasKey && GameManager.HasTicket && GameManager.HasWallet && GameManager.HasPhone && GameManager.HasMoney) {
-            SceneManager.LoadScene("Win");
-        }
     }
 
     void FixedUpdate()
     {
         // rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
         Move();
-        if (this.health == 0) {
+        if (this.health <= 0) {
             ChangeSprite();
             button.SetActive(true);
+            GameManager.m_GameState = Constants.GameState.LoseGame;
         }
     }
 
@@ -101,10 +102,8 @@ public class PlayerController : MonoBehaviour
         // Switch the way the player is labelled as facing
         facingRight = !facingRight;
 
-        // Multiply the player's x local scale by -1
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        // Flip sprite
+        spriteRenderer.flipX = !spriteRenderer.flipX;
     }
 
     void ChangeSprite() {
@@ -122,33 +121,44 @@ public class PlayerController : MonoBehaviour
             switch (attributes.item) {
                 case Constants.ItemType.Key:
                     GameManager.HasKey = true;
-                    print("Picked up key");
+                    Say("Picked up key");
                     key.SetActive(true);
                     break;
                 case Constants.ItemType.Ticket:
                     GameManager.HasTicket = true;
-                    print("Picked up ticket");
+                    Say("Picked up ticket");
                     ticket.SetActive(true);
                     break;
                 case Constants.ItemType.Wallet:
                     GameManager.HasWallet = true;
-                    print("Picked up wallet");
+                    Say("Picked up wallet");
                     wallet.SetActive(true);
                     break;
                 case Constants.ItemType.Phone:
                     GameManager.HasPhone = true;
-                    print("Picked up phone");
+                    Say("Picked up phone");
                     phone.SetActive(true);
                     break;
                 case Constants.ItemType.Money:
                     GameManager.HasMoney = true;
-                    print("Picked up money");
+                    Say("Picked up money");
                     money.SetActive(true);
                     break;
                 default:
-                    print("Picked up nothing");
+                    Say("Picked up nothing");
                     break;
             }
         }
+    }
+
+    public void Say(string speech) {
+        Vector3 position = transform.position + new Vector3(0f, 1f);
+        if (chatBubbleInstance != null) {
+            Destroy(chatBubbleInstance);
+        }
+        chatBubbleInstance = Instantiate(chatBubble, position, Quaternion.identity);
+        chatBubbleInstance.GetComponent<ChatBubble>().setText(speech);
+        chatBubbleInstance.transform.SetParent(transform);
+        Destroy(chatBubbleInstance, 3f);
     }
 }

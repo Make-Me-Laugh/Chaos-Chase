@@ -173,4 +173,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatBubble: {fileID: 508861154582311283, guid: c04f660628e1ed844999657873c3e2df, type: 3}
-  interval: 12
+  interval: 4

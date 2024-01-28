@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public static GameState m_GameState = GameState.MainMenu;
+    public static Constants.GameState m_GameState = Constants.GameState.MainMenu;
     public static float m_GameTime;
     public static bool HasKey = false;
     public static bool HasTicket = false;
@@ -28,13 +28,13 @@ public class GameManager : Singleton<GameManager>
 
     private void HandleGameOver()
     {
-        m_GameState = GameState.LoseGame;
+        m_GameState = Constants.GameState.LoseGame;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void HandleStartGame()
     {
-        m_GameState = GameState.InGame;
+        m_GameState = Constants.GameState.InGame;
     }
 
     void Start()
@@ -45,18 +45,9 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if (m_GameState == GameState.InGame)
+        if (m_GameState == Constants.GameState.InGame)
         {
             m_GameTime -= Time.deltaTime;
         }
     }
-}
-
-public enum GameState
-{
-    MainMenu,
-    InGame,
-    Paused,
-    WinGame,
-    LoseGame,
 }
