@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1302,16 +1302,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_57
+      name: ChatBubble
       rect:
         serializedVersion: 2
         x: 144
         y: 224
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1470,7 +1470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_66
+      name: Pause
       rect:
         serializedVersion: 2
         x: 96
@@ -4895,7 +4895,6 @@ TextureImporter:
       GUI_180: -1519351015
       GUI_169: -804180074
       GUI_9: 1104989608
-      GUI_57: -1381341336
       GUI_78: -297449542
       GUI_93: -31438963
       GUI_133: 60987782
@@ -4903,8 +4902,8 @@ TextureImporter:
       GUI_8: -752975772
       GUI_52: 1998787566
       GUI_214: 395050791
-      GUI_60: -1015361095
       GUI_173: -368581391
+      GUI_60: -1015361095
       GUI_126: 1924990569
       GUI_136: -895774470
       GUI_32: 51178051
@@ -4913,6 +4912,7 @@ TextureImporter:
       GUI_195: 1506736483
       GUI_211: 1403683790
       GUI_153: -2063285709
+      ChatBubble: -1381341336
       GUI_85: 497676047
       GUI_109: 1900258019
       GUI_53: 1935115898
@@ -4922,7 +4922,7 @@ TextureImporter:
       GUI_14: -22511444
       GUI_23: 217917437
       GUI_35: -1529350263
-      GUI_66: 1640979468
+      GUI_185: -1922005368
       GUI_181: -1048101902
       GUI_17: -955986795
       GUI_46: 1592863326
@@ -4931,7 +4931,6 @@ TextureImporter:
       GUI_222: -1317178833
       GUI_206: 1689428179
       GUI_149: -1661435882
-      GUI_185: -1922005368
       GUI_84: -490527074
       GUI_138: -150484227
       GUI_73: -1179212948
@@ -5036,8 +5035,8 @@ TextureImporter:
       GUI_118: 1732748207
       GUI_100: -1417113494
       GUI_151: 1802403379
-      GUI_217: -568751343
       GUI_201: -315941524
+      GUI_217: -568751343
       GUI_221: 1273747237
       GUI_215: 2089646854
       GUI_175: -1276273176
@@ -5060,6 +5059,7 @@ TextureImporter:
       GUI_4: -1729120069
       GUI_127: -2070879500
       GUI_160: 1249869242
+      Pause: 1640979468
       GUI_131: -970756109
       GUI_21: -1751862568
       GUI_212: 2012650817
