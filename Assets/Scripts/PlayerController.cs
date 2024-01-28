@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +15,12 @@ public class PlayerController : MonoBehaviour
     public int health;
     public SpriteRenderer spriteRenderer;
     public Sprite newSprite;
+    private GameObject button;
+    private GameObject key;
+    private GameObject ticket;
+    private GameObject wallet;
+    private GameObject phone;
+    private GameObject money;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +32,28 @@ public class PlayerController : MonoBehaviour
         health = 5;
         spriteRenderer = GetComponent<SpriteRenderer>();
         newSprite = Resources.Load<Sprite>("Sprites/Kid");
+        button = GameObject.FindGameObjectWithTag("Button");
+        button.SetActive(false);
+
+        key = GameObject.FindGameObjectWithTag("Key");
+        ticket = GameObject.FindGameObjectWithTag("Ticket");
+        wallet = GameObject.FindGameObjectWithTag("Wallet");
+        phone = GameObject.FindGameObjectWithTag("Phone");
+        money = GameObject.FindGameObjectWithTag("Money");
+        key.SetActive(false);
+        ticket.SetActive(false);
+        wallet.SetActive(false);
+        phone.SetActive(false);
+        money.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessInputs();
+        if (GameManager.HasKey && GameManager.HasTicket && GameManager.HasWallet && GameManager.HasPhone && GameManager.HasMoney) {
+            SceneManager.LoadScene("Win");
+        }
     }
 
     void FixedUpdate()
@@ -38,6 +62,7 @@ public class PlayerController : MonoBehaviour
         Move();
         if (this.health == 0) {
             ChangeSprite();
+            button.SetActive(true);
         }
     }
 
@@ -90,6 +115,40 @@ public class PlayerController : MonoBehaviour
         Collider2D playerCollider = GetComponent<Collider2D>();
         if (spriteRenderer.sprite == newSprite && !other.gameObject.CompareTag("Wall")) { 
             Physics2D.IgnoreLayerCollision(0, 2, true);
+        }
+        if (other.gameObject.CompareTag("Searchable")) {
+            print("search");
+            SearchableAttributes attributes = other.gameObject.GetComponent<SearchableAttributes>();
+            switch (attributes.item) {
+                case Constants.ItemType.Key:
+                    GameManager.HasKey = true;
+                    print("Picked up key");
+                    key.SetActive(true);
+                    break;
+                case Constants.ItemType.Ticket:
+                    GameManager.HasTicket = true;
+                    print("Picked up ticket");
+                    ticket.SetActive(true);
+                    break;
+                case Constants.ItemType.Wallet:
+                    GameManager.HasWallet = true;
+                    print("Picked up wallet");
+                    wallet.SetActive(true);
+                    break;
+                case Constants.ItemType.Phone:
+                    GameManager.HasPhone = true;
+                    print("Picked up phone");
+                    phone.SetActive(true);
+                    break;
+                case Constants.ItemType.Money:
+                    GameManager.HasMoney = true;
+                    print("Picked up money");
+                    money.SetActive(true);
+                    break;
+                default:
+                    print("Picked up nothing");
+                    break;
+            }
         }
     }
 }

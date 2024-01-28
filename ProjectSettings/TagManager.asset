@@ -8,6 +8,12 @@ TagManager:
   - Furniture
   - Searchable
   - DoorMat
+  - Button
+  - Key
+  - Ticket
+  - Wallet
+  - Phone
+  - Money
   layers:
   - Default
   - TransparentFX

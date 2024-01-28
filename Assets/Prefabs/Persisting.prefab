@@ -138,4 +138,4 @@ MonoBehaviour:
   m_PlayerHealthValue: 10
   m_PlayerReloadTime: 0.5
   m_PlayerInvulTime: 0.5
-  m_EnemyReloadTime: 3
+  m_EnemyReloadTime: 2

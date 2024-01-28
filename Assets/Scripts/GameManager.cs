@@ -7,6 +7,11 @@ public class GameManager : Singleton<GameManager>
 {
     public static GameState m_GameState = GameState.MainMenu;
     public static float m_GameTime;
+    public static bool HasKey = false;
+    public static bool HasTicket = false;
+    public static bool HasWallet = false;
+    public static bool HasPhone = false;
+    public static bool HasMoney = false;
     protected override void HandleAwake()
     {
         base.HandleAwake();
