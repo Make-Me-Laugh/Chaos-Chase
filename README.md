@@ -6,6 +6,15 @@
 - Extract all files
 - Double click on "My Project"
 
+# images
+<!-- 
+![image1](https://your-copied-image-address)
+![image2](https://your-copied-image-address)
+![image3](https://your-copied-image-address)
+![image4](https://your-copied-image-address)
+![image5](https://your-copied-image-address)
+![image6](https://your-copied-image-address) -->
+
 # Important Links
 
 https://kueh22.webflow.io/
