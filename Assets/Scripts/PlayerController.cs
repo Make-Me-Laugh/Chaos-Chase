@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private bool facingRight;
     public int health;
+    public SpriteRenderer spriteRenderer;
+    public Sprite newSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,8 @@ public class PlayerController : MonoBehaviour
         movementSpeed = 5.0f;
         facingRight = true;
         health = 5;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        newSprite = Resources.Load<Sprite>("Sprites/Kid");
     }
 
     // Update is called once per frame
@@ -31,6 +36,9 @@ public class PlayerController : MonoBehaviour
     {
         // rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
         Move();
+        if (this.health == 0) {
+            ChangeSprite();
+        }
     }
 
     void ProcessInputs(){
@@ -72,5 +80,16 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void ChangeSprite() {
+        spriteRenderer.sprite = newSprite; 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Collider2D playerCollider = GetComponent<Collider2D>();
+        if (spriteRenderer.sprite == newSprite && !other.gameObject.CompareTag("Wall")) { 
+            Physics2D.IgnoreLayerCollision(0, 2, true);
+        }
     }
 }

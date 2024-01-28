@@ -35,9 +35,10 @@ public class SlipperManager : MonoBehaviour
                 if (player.health > 0) {
                     player.health -= 1;
                 }
-                else if (player.health == 0) {
-                    Destroy(player.gameObject);
-                }
+                // else if (player.health == 0) {
+                //     // Destroy(player.gameObject);
+                //     other.collider.isTrigger = true;
+                // }
             }
         }
     }
