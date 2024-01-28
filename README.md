@@ -14,7 +14,7 @@
 ![image4](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_009_0000.jpg)
 ![image5](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_010_0000.jpg)
 ![image6](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_011_0000.jpg)
-![image7](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_012_0000.jpg)
+
 
 # Important Links
 
