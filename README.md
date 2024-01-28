@@ -7,13 +7,14 @@
 - Double click on "My Project"
 
 # images
-<!-- 
-![image1](https://your-copied-image-address)
-![image2](https://your-copied-image-address)
-![image3](https://your-copied-image-address)
-![image4](https://your-copied-image-address)
-![image5](https://your-copied-image-address)
-![image6](https://your-copied-image-address) -->
+
+![image1](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_008_0000.jpg)
+![image2](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_003_0000.jpg)
+![image3](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_007_0000.jpg)
+![image4](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_009_0000.jpg)
+![image5](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_010_0000.jpg)
+![image6](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_011_0000.jpg)
+![image7](https://github.com/Make-Me-Laugh/Chaos-Chase/blob/main/images/image_012_0000.jpg)
 
 # Important Links
 
