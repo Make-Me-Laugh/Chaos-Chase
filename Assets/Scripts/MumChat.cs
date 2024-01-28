@@ -5,6 +5,7 @@ using UnityEngine;
 public class MumChat : MonoBehaviour
 {
     public GameObject chatBubble;
+    [SerializeField] float interval;
 
     List<string> mumDialogues = new List<string> {
         "Ah boy, go study!",
@@ -15,7 +16,8 @@ public class MumChat : MonoBehaviour
     };
     private int mumDialogueIndex = 0;
     private float time;
-    private float interval = 12f;
+
+    private GameObject chatInstance;
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class MumChat : MonoBehaviour
                 mumDialogueIndex = 0;
             }
         }
+        updateChat(chatInstance);
     }
 
     private void showChat()
@@ -43,5 +46,12 @@ public class MumChat : MonoBehaviour
         GameObject instance = Instantiate(chatBubble, position, Quaternion.identity);
         instance.GetComponent<ChatBubble>().setText(mumDialogues[mumDialogueIndex]);
         Destroy(instance, 4f);
+        chatInstance = instance;
+    }
+
+    private void updateChat(GameObject chatInstance)
+    {
+        Vector3 position = transform.position + new Vector3(0f, 1f);
+        chatInstance.GetComponent<ChatBubble>().transform.position = position;
     }
 }
