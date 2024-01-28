@@ -17,7 +17,7 @@ public class AilingTest : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {

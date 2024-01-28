@@ -87,3 +87,6 @@ TagManager:
   - name: Deco 3
     uniqueID: 3590220167
     locked: 0
+  - name: Chat
+    uniqueID: 2927939485
+    locked: 0
