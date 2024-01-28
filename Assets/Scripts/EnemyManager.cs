@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     private GameObject player;
     private bool hasLineOfSight = false;
     float radius = 0.5f;
+    float shootradius = 4.5f;
     private bool isShooting = false;
 
     void Awake()
@@ -39,7 +40,7 @@ public class EnemyManager : MonoBehaviour
     private void FixedUpdate() {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
         if (ray.collider != null) {
-            hasLineOfSight = ray.collider.gameObject.CompareTag("Player");
+            hasLineOfSight = ray.collider.gameObject.CompareTag("Player") && ray.distance < shootradius;
         }
     }
 
@@ -49,11 +50,6 @@ public class EnemyManager : MonoBehaviour
         Vector3 direction = player.transform.position - transform.position;
         slipper.transform.position = transform.position + direction.normalized * radius;
         yield return new WaitForSeconds(GlobalSettings.EnemyReloadTime);
-        agent.isStopped = false;
-        agent.SetDestination(player.transform.position);
-        print("move");
-        
-        yield return new WaitForSeconds(0.5f);
         agent.isStopped = true;
         isShooting = false;
     }

@@ -6,7 +6,6 @@ public class SlipperManager : MonoBehaviour
 {
     [SerializeField] float torque = 20f;
     private Rigidbody2D rb;
-    private bool isDisappear = false;
     private GameObject player;
 
     void Start()
@@ -27,7 +26,6 @@ public class SlipperManager : MonoBehaviour
     }
 
     private IEnumerator Disappear() {
-        isDisappear = true;
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
