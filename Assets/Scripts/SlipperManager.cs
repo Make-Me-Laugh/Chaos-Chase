@@ -25,6 +25,21 @@ public class SlipperManager : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            if (player != null) {
+                // player.PickUpItem(this);
+                if (player.health > 0) {
+                    player.health -= 1;
+                }
+                else if (player.health == 0) {
+                    Destroy(player.gameObject);
+                }
+            }
+        }
+    }
+
     private IEnumerator Disappear() {
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
