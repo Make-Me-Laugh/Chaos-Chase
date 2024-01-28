@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SlipperManager : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class SlipperManager : MonoBehaviour
                     player.health -= 1;
                 }
                 else if (player.health == 0) {
-                    Destroy(player.gameObject);
+                    SceneManager.LoadScene("Lose");
                 }
             }
         }

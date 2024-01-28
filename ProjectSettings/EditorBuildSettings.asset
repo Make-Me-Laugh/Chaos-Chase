@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: cbe5b2378194e4841b1f4d5431959717
   - enabled: 1
-    path: Assets/Scenes/AilingTest.unity
-    guid: a3cd66f8026572e4d88ac3994dc7f689
+    path: Assets/Scenes/Lose.unity
+    guid: 5f563ddbc31780543844b9bbabe36b11
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 3caf5e3d2ae241a4094612d0b16ccad1
   m_configObjects: {}
