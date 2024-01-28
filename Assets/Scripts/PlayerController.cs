@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
     public Rigidbody2D rb;
-    public Vector2 movement;
-    public Boolean facingRight;
+    private Vector2 movement;
+    private bool facingRight;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         movementSpeed = 5.0f;
         facingRight = true;
+        health = 5;
     }
 
     // Update is called once per frame
